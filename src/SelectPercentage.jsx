@@ -1,8 +1,12 @@
-function SelectPercentage({ label }) {
+function SelectPercentage({ label, percentage, onSetPercentage }) {
+  const handleOnChnage = (e) => {
+    onSetPercentage(Number(e.target.value));
+  };
+
   return (
     <div>
       <label>{label}</label>
-      <select>
+      <select value={percentage} onChange={handleOnChnage}>
         <option value="0">Dissatisfied (0%)</option>
         <option value="5">It was okay (5%)</option>
         <option value="10">It was good (10%)</option>

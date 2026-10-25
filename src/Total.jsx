@@ -1,5 +1,9 @@
-function Total() {
-  return <div>You Pay $payment ($payment + $tip )</div>;
+function Total({ billAmount, tip }) {
+  return (
+    <div>
+      <p>{`You Pay $${billAmount} ($${billAmount} + $${tip}tip)`}</p>
+    </div>
+  );
 }
 
 export default Total;

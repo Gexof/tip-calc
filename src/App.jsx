@@ -3,6 +3,7 @@ import { useState } from "react";
 import Bill from "./Bill";
 import SelectPercentage from "./SelectPercentage";
 import Total from "./Total";
+import Button from "./Button";
 
 function App() {
   const [billAmount, setBillAmount] = useState(0);
@@ -10,6 +11,12 @@ function App() {
   const [percentage2, setPercentage2] = useState(0);
 
   const tip = billAmount * ((percentage1 + percentage2) / 2 / 100);
+
+  const handleReset = () => {
+    setBillAmount(0);
+    setPercentage1(0);
+    setPercentage2(0);
+  };
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-stone-100 px-4 py-10 text-stone-800 sm:px-6">
@@ -50,6 +57,8 @@ function App() {
           <div className="border-t border-stone-100 pt-6">
             <Total billAmount={billAmount} tip={tip} />
           </div>
+
+          <Button onReset={handleReset} />
         </div>
       </div>
     </main>
